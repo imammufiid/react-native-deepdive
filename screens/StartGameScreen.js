@@ -1,10 +1,12 @@
 import {View, TextInput, StyleSheet} from "react-native";
+import {PrimaryButton} from "../components/PrimaryButton";
 
 export const StartGameScreen = () => {
     return (
         <View>
             <TextInput/>
-            {/*Button Component*/}
+            <PrimaryButton>Reset</PrimaryButton>
+            <PrimaryButton>Confirm</PrimaryButton>
         </View>
     )
 }
