@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
         marginTop: 100,
         padding: 16,
         borderRadius: 8,
-        backgroundColor: '#4E0329',
+        backgroundColor: '#3B021F',
         elevation: 4,
         shadowColor: 'black',
         shadowOffset: {
