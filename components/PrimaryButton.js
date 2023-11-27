@@ -1,11 +1,7 @@
 import {View, Text, TouchableOpacity, StyleSheet} from "react-native";
 
 export const PrimaryButton = (props) => {
-    const {children} = props
-
-    const onPress = () => {
-
-    }
+    const {children, onPress} = props
 
     return (
         <TouchableOpacity
