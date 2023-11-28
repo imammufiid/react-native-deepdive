@@ -1,4 +1,5 @@
 import {View, Text, TouchableOpacity, StyleSheet} from "react-native";
+import {Colors} from "../constants/color";
 
 export const PrimaryButton = (props) => {
     const {children, onPress} = props
@@ -15,7 +16,7 @@ export const PrimaryButton = (props) => {
 
 const styles = StyleSheet.create({
     buttonContainer: {
-        backgroundColor: '#72063C',
+        backgroundColor: Colors.primary500,
         borderRadius: 28,
         paddingVertical: 8,
         paddingHorizontal: 16,
@@ -23,7 +24,7 @@ const styles = StyleSheet.create({
         elevation: 2
     },
     buttonText: {
-        color: '#FFFFFF',
+        color: Colors.white,
         textAlign: 'center',
     }
 })
