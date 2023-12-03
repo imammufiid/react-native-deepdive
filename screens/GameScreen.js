@@ -1,4 +1,4 @@
-import {Alert, Platform, StyleSheet, Text, View} from "react-native";
+import {Alert, Platform, StyleSheet, View} from "react-native";
 import {Title} from "../components/ui/Title";
 import {useEffect, useState} from "react";
 import {NumberContainer} from "../components/game/NumberContainer";
