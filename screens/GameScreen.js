@@ -20,7 +20,7 @@ let minBoundary = 1
 let maxBoundary = 100
 
 export const GameScreen = (props) => {
-    const {userNumber, onGameOver} = props
+    const {userNumber, onGameOver, roundsNumber} = props
     const initialGuess = generateRandomBetween(1, 100, userNumber)
     const [currentGuess, setCurrentGuess] = useState(initialGuess)
 
@@ -29,6 +29,11 @@ export const GameScreen = (props) => {
             onGameOver()
         }
     }, [currentGuess, userNumber, onGameOver])
+
+    useEffect(() => {
+        minBoundary = 1
+        maxBoundary = 100
+    }, [])
 
     const nextGuessHandler = (direction) => {
         if (
@@ -51,6 +56,7 @@ export const GameScreen = (props) => {
         }
         const newRandomNumber = generateRandomBetween(minBoundary, maxBoundary, currentGuess)
         setCurrentGuess(newRandomNumber)
+        roundsNumber()
     }
 
     return (
