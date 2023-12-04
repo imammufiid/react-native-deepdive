@@ -36,16 +36,10 @@ export default function App() {
         setGuessRounds(0)
     }
 
-    const guessRoundsHandler = () => {
-        let tempGuessRounds = guessRounds + 1;
-        setGuessRounds(tempGuessRounds);
-    }
-
     let screen = <StartGameScreen onPickNumber={pickedNumberHandler}/>
     if (userNumber) {
         screen = <GameScreen
             userNumber={userNumber}
-            roundsNumber={guessRoundsHandler}
             onGameOver={gameOverHandler}/>
     }
 
