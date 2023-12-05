@@ -6,6 +6,7 @@ import {PrimaryButton} from "../components/ui/PrimaryButton";
 import {Card} from "../components/ui/Card";
 import {InstructionText} from "../components/ui/InstructionText";
 import {Ionicons} from '@expo/vector-icons'
+import {GuessLogItem} from "../components/game/GuessLogItem";
 
 const generateRandomBetween = (min, max, exclude) => {
     const randomNumber = Math.floor(Math.random() * (max - min)) + min;
@@ -27,7 +28,7 @@ export const GameScreen = (props) => {
 
     useEffect(() => {
         if (currentGuess === parseInt(userNumber)) {
-            onGameOver()
+            onGameOver(guessRounds.length)
         }
     }, [currentGuess, userNumber, onGameOver])
 
@@ -60,6 +61,8 @@ export const GameScreen = (props) => {
         setGuessRounds(prevState => [newRandomNumber, ...prevState])
     }
 
+    const guessRoundListLength = guessRounds.length
+
     return (
         <View style={styles.screen}>
             <Title>Opponent's Guess</Title>
@@ -84,15 +87,17 @@ export const GameScreen = (props) => {
                     </View>
                 </View>
             </Card>
-            <View>
+            <View style={styles.listContainer}>
                 <FlatList
                     data={guessRounds}
                     keyExtractor={(item) => item}
                     renderItem={(itemData) => {
-                    return (
-                        <Text>{itemData.item}</Text>
-                    )
-                }}/>
+                        return (
+                            <GuessLogItem
+                                roundNumber={guessRoundListLength - itemData.index}
+                                guess={itemData.item}/>
+                        )
+                    }}/>
             </View>
         </View>
     )
@@ -113,5 +118,9 @@ const styles = StyleSheet.create({
     },
     instructionText: {
         marginBottom: 12,
+    },
+    listContainer: {
+        flex: 1,
+        paddingHorizontal: 16
     }
 })

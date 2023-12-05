@@ -18,17 +18,21 @@ export default function App() {
         'open-sans-bold': require('./assets/fonts/OpenSans-Bold.ttf'),
     })
 
+    console.log('APP LOADED')
+
     if (!fontsLoaded) {
         return <AppLoading/>
     }
 
     const pickedNumberHandler = (pickedNumber) => {
+        console.log('PICK NUMBER', pickedNumber)
         setUserNumber(pickedNumber)
         setGameIsOver(false)
     }
 
-    const gameOverHandler = () => {
+    const gameOverHandler = (numberOfRounds) => {
         setGameIsOver(true)
+        setGuessRounds(numberOfRounds)
     }
 
     const startNewGameHandler = () => {
