@@ -109,6 +109,7 @@ const styles = StyleSheet.create({
         paddingTop: Platform.OS === 'android' ? 50 : 12,
         paddingBottom: 12,
         paddingHorizontal: 12,
+        alignItems: 'center'
     },
     buttonsContainer: {
         flexDirection: 'row',
